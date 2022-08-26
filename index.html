@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> ASCII Torus </title>
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+            color: white;
+        }
+        #container {
+            width: 100vw;
+            height: 100vh;
+            justify-content: center;
+            align-items: baseline;
+            display: flex;
+        }
+        .textcanvas {
+            position: center;
+            background-color: black;
+            color:white;
+            font-family: monospace;
+            text-align: center;
+            width: fit-content;
+            height: fit-content;
+        }
+
+        .uicontainer {
+            position: fixed;
+            margin-left: 0;
+            float: left;
+        }
+
+        /* The slider itself */
+        .slider {
+            -webkit-appearance: none;  /* Override default CSS styles */
+            appearance: none;
+            width: 150px; /* Full-width */
+            height: 15px; /* Specified height */
+            background: #d3d3d3; /* Grey background */
+            outline: none; /* Remove outline */
+            opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+            -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+            transition: opacity .2s;
+        }
+
+        /* Mouse-over effects */
+        .slider:hover {
+            opacity: 1; /* Fully shown on mouse-over */
+        }
+
+        /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none; /* Override default look */
+            appearance: none;
+            width: 15px; /* Set a specific slider handle width */
+            height: 15px; /* Slider handle height */
+            background: #04AA6D; /* Green background */
+            cursor: pointer; /* Cursor on hover */
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px; /* Set a specific slider handle width */
+            height: 25px; /* Slider handle height */
+            background: #04AA6D; /* Green background */
+            cursor: pointer; /* Cursor on hover */
+        }
+    </style>
+</head>
+<body>
+<div class="uicontainer">
+    radius_1    <br><input type="range" min="1" max="10" value="4" class="slider" id="sl_radius_1">          <b id="radius_1">4</b><br>
+    radius_2     <br><input type="range" min="1" max="5" value="1" class="slider" id="sl_radius_2">          <b id="radius_2">1</b><br>
+    scale           <br><input type="range" min="0" max="100" value="50" class="slider" id="sl_scale">          <b id="scale">50</b><br>
+    rotX            <br><input type="range" min="0" max="20" value="10" class="slider" id="sl_rotX">          <b id="rotX">10</b><br>
+    rotZ            <br><input type="range" min="0" max="20" value="10" class="slider" id="sl_rotZ">          <b id="rotZ">10</b><br>
+    cameraDist      <br><input type="range" min="0" max="20" value="10" class="slider" id="sl_cameraDist">          <b id="cameraDist">10</b><br>
+</div>
+<div id="container">
+    <div class="textcanvas" id="canvas2" ></div>
+</div>
+<script>
+    document.getElementById("sl_radius_1").oninput = function(){
+        document.getElementById("radius_1").innerHTML = this.value;
+    }
+    document.getElementById("sl_radius_2").oninput = function(){
+        document.getElementById("radius_2").innerHTML = this.value;
+    }
+    document.getElementById("sl_scale").oninput = function(){
+        document.getElementById("scale").innerHTML = this.value;
+    }
+    document.getElementById("sl_rotX").oninput = function(){
+        document.getElementById("rotX").innerHTML = this.value;
+    }
+    document.getElementById("sl_rotZ").oninput = function(){
+        document.getElementById("rotZ").innerHTML = this.value;
+    }
+
+    document.getElementById("sl_cameraDist").oninput = function(){
+        document.getElementById("cameraDist").innerHTML = this.value;
+    }
+</script>
+
+<!--<canvas id="canvasdonut" width="500" height="500"></canvas>-->
+<script type="text/javascript" src="asciiRender.js"></script>
+</body>
+</html>
